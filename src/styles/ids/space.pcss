@@ -1,0 +1,36 @@
+/* COMPONENTS */
+.ids__stack {
+  &.XS {
+    height: calc(var(--ids__density) * 1em);
+  }
+  &.S {
+    height: calc(var(--ids__density) * 2em);
+  }
+  &.M {
+    height: calc(var(--ids__density) * 4em);
+  }
+  &.L {
+    height: calc(var(--ids__density) * 8em);
+  }
+  &.XL {
+    height: calc(var(--ids__density) * 16em);
+  }
+
+  @media screen and (--ids-mobile) {
+    &.XS {
+      height: calc(var(--ids__density) * 1em / 3);
+    }
+    &.S {
+      height: calc(var(--ids__density) * 1em);
+    }
+    &.M {
+      height: calc(var(--ids__density) * 1em);
+    }
+    &.XL {
+      height: calc(var(--ids__density) * 4em);
+    }
+    &.L {
+      height: calc(var(--ids__density) * 2em);
+    }
+  }
+}

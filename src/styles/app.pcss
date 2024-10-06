@@ -1,0 +1,25 @@
+/* IDS */
+@import './ids/normalize.pcss';
+@import './ids/vars.pcss';
+@import './ids/layout.pcss';
+@import './ids/base.pcss';
+@import './ids/space.pcss';
+@import './ids/typography.pcss';
+@import './ids/colors.pcss';
+@import './ids/ui.pcss';
+@import './ids/candidates.pcss';
+
+/* App */
+@import 'fonts.pcss';
+@import 'theme.pcss';
+/* @import 'main.pcss'; */
+
+body {
+  min-width: 1100px;
+  max-width: 2000px;
+  font-weight: 300;
+
+  @media screen and (--ids-mobile) {
+    min-width: auto;
+  }
+}

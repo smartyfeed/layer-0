@@ -1,0 +1,83 @@
+/* FLUID TYPOGRAPHY */
+:root {
+  --ids__density: 1.3;
+  --fluid-min-width: 1000;
+  --fluid-max-width: 1600;
+  --fluid-screen: 100vw; /* если px - шрифт не растягивается */
+
+  /* desktop */
+  --type-scale-desktop: 1.5;
+  --font-size-min: 16;
+  --font-size-max: 20;
+
+  /* mobile */
+  --type-scale-mobile: 1.333;
+  --font-size-min-mobile: 17;
+  --font-size-max-mobile: 17;
+
+  @media screen and (--ids-desktop) {
+    --f-0-min: var(--font-size-min);
+    --f-0-max: var(--font-size-max);
+    --type-scale: var(--type-scale-desktop);
+  }
+
+  @media screen and (--ids-mobile) {
+    --f-0-min: var(--font-size-min-mobile);
+    --f-0-max: var(--font-size-max-mobile);
+    --type-scale: var(--type-scale-mobile);
+  }
+
+  /* не уменьшать шрифт */
+  @media screen and (max-width: 1000px) {
+    --fluid-screen: calc(var(--fluid-min-width) * 1px);
+  }
+
+  /* не увеличивать шрифт */
+  @media screen and (min-width: 1600px) {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+
+  @media screen and (--ids-mobile) {
+    --fluid-min-width: 320;
+    --fluid-max-width: 768;
+    --fluid-screen: 100vw;
+  }
+
+  /* CALC */
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+  --step-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp)
+  );
+
+  /* positive */
+  --f-1-min: calc(var(--f-0-min) * var(--type-scale));
+  --f-1-max: calc(var(--f-0-max) * var(--type-scale));
+  --step-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) * var(--fluid-bp)
+  );
+  --f-2-min: calc(var(--f-1-min) * var(--type-scale));
+  --f-2-max: calc(var(--f-1-max) * var(--type-scale));
+  --step-2: calc(
+    ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) * var(--fluid-bp)
+  );
+  --f-3-min: calc(var(--f-2-min) * var(--type-scale));
+  --f-3-max: calc(var(--f-2-max) * var(--type-scale));
+  --step-3: calc(
+    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) * var(--fluid-bp)
+  );
+
+  /* negative */
+  --f--1-min: calc(var(--f-0-min) / var(--type-scale));
+  --f--1-max: calc(var(--f-0-max) / var(--type-scale));
+  --step--1: calc(
+    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) * var(--fluid-bp)
+  );
+  --f--2-min: calc(var(--f--1-min) / var(--type-scale));
+  --f--2-max: calc(var(--f--1-max) / var(--type-scale));
+  --step--2: calc(
+    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) * var(--fluid-bp)
+  );
+}
