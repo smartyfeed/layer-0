@@ -1,9 +1,8 @@
 <script>
+  import { SignIn, SignOut } from "@auth/sveltekit/components"
   import { page } from '$app/stores';
 
   $: ariaCurrent = (/** @type {string} */ currUrl) => ($page.url.pathname === currUrl ? 'page' : undefined);
-
-  import { SignIn } from "@auth/sveltekit/components"
 </script>
 
 <template lang="pug">
@@ -11,7 +10,12 @@
     img.menu(src="/images/eye.svg")
     span Книга стажёра
     a(href="/") Содержание
-    SignIn (provider="authentik" signInPage="signin")
-    a(href="/") Выйти
+    +if('$page.data.session.user')
+      strong {$page.data.session.user?.name ?? "User"}
+      SignOut 
+       a Выйти
+      +else()
+      SignIn 
+        a Войти
   .ids__stack.M 
 </template>
