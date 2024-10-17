@@ -7,9 +7,9 @@
   Meta(title='{ $page.status }', description='{ $page.error.message }')
   .top-space
   .ids__wrapper
-    h1 Error: {$page.status}
+    h1 Ошибка: {$page.status}
     +if('$page.status == 404')
-      p Page not found! ¯\_(ツ)_/¯
+      p Нет такой страницы! ¯\_(ツ)_/¯
       +else
         p  We already know the issue and will fix it as soon as possible.
 </template>

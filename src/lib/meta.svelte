@@ -1,17 +1,17 @@
 <script>
-  export let title = 'Cross-R';
-  export let description = 'We here!';
-  export let cover = 'https://full.cover/url.png';
-  export let coverWidth = '1500';
-  export let coverHeight = '1500';
-  export let coverAlt = 'Cross-R';
+  export let title = 'Оптика72 · Книга стажёра';
+  export let description = 'Поможет успешно пройти стажировку';
+  export let cover = '/images/IMG_0202.jpg';
+  export let coverWidth = '2000';
+  export let coverHeight = '1145';
+  export let coverAlt = 'Cover';
   export let url = '/';
 
-  $: pageUrl = `${new URL(url, 'https://site.url/')}`;
+  $: pageUrl = `${new URL(url, 'https://book-optica72.ru/')}`;
 
   $: scheme = [
     { name: 'description', content: description },
-    { name: 'author', content: 'Cross-R' },
+    { name: 'author', content: 'Оптика72 • viktort.ru' },
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: title },
     { property: 'og:description', content: description },
